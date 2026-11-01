@@ -15,4 +15,5 @@ spec:
     spec:
       containers:
       - name: webapp
-        image: richardchesterwood/k8s-fleetman-webapp-angular:release0
+        image: docker.io/library/fleetman-webapp:local
+        imagePullPolicy: Never

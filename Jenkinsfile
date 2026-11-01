@@ -12,6 +12,18 @@ pipeline {
             }
         }
 
+        stage('Build Angular') {
+            steps {
+                sh '''
+                    docker run --rm \
+                      -v "$WORKSPACE:/workspace" \
+                      -w /workspace \
+                      node:10 \
+                      bash -lc 'npm ci && npm run build'
+                '''
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t fleetman-webapp:local .'
