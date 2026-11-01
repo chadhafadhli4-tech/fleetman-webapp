@@ -16,10 +16,12 @@ pipeline {
             steps {
                 sh '''
                     docker run --rm \
+                      --user "$(id -u):$(id -g)" \
+                      -e HOME=/tmp \
                       -v "$WORKSPACE:/workspace" \
                       -w /workspace \
                       node:10 \
-                      bash -lc 'npm ci && npm run build'
+                      bash -lc 'npm ci && rm -rf dist && npm run build'
                 '''
             }
         }
