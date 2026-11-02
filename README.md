@@ -1,6 +1,6 @@
 # K8sFleetmanWebappAngular
 
-Test
+Test app
 
 This is an experimental project to port the front end to Angular.
 
